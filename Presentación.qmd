@@ -1,0 +1,208 @@
+---
+title: "Análisis de la evolución de precios de la canasta básica: Un enfoque comparativo entre supermercados."
+format: revealjs
+editor: visual
+theme: black
+---
+
+## Identificación del Problema {style="color: #F0DAA4"}
+
+-   ¿Están subiendo los precios?
+
+-   ¿En qué períodos hay mayores aumentos?
+
+-   ¿Las instituciones de venta de alimentos formales, entendidos como supermercados, automercados o hipermercados, cuentan con precios accesibles y competitivos para que los hogares puedan adquirir los productos de la canasta básica?
+
+## Elección de los Datos y la Canasta Básica {style="color: #F0DAA4"}
+
+-   Selección de **DataPrecio**
+
+-   Supermercados a estudiar: Autosmercados Plazas, Central Madeirense y Gama Supermercados.
+
+-   La construcción de una **Canasta Básica**
+
+-   ¿Cuál de los supermercados analizados ofrece la opción más ventajosa para la adquisición de la cesta básica representativa?
+
+# Obtención y Filtrado de los Datos {style="color: #F0DAA4"}
+
+## Obtención {style="color: #F0DAA4"}
+
+El proceso de extracción de datos se realizó mediante un **scraper** diseñado con la ayuda del profesor José Avendaño, para extraer los datos de los distintos productos alojados en `Dataprecio.com`. Para lograrlo, se utilizó la librería `httr2` para enviar solicitudes **HTTP** al **API** y recibir las respuestas de la página web, que están en formato **JSON**. Para extraer todos los datos contenidos en los JSONs, se utilizó la librería `jsonlite`, permitiendo el acceso a la información de productos y tiendas.
+
+## Obtención {style="color: #F0DAA4"}
+
+Dentro de estos archivos también había más información relevante, por lo que se tuvo que desanidar, con la función `unnest`, la categoría en cuestión. Para poder descargar todos los datos automáticamente, y no por cada pagina de Dataprecios, se implementó un **loop**, del tipo ***“for loops”***. Para unir toda la información descargada en un solo dataframe, se usó `bind_rows()`.
+
+## Filtrado {style="color: #F0DAA4"}
+
+El proceso de filtrado de los productos seleccionados en la canasta se realizó a través de la selección de los `productID`, posterior a esto, se necesitó hacer un código para filtrar los supermercados *que cumplieran con la condición de que [se repitieran los mismos productos]{.underline}*, para que *al totalizar la canasta [no hubieran discrepancias en el cálculo]{.underline} por productos faltantes*. De este filtrado se escogieron tres supermercados que poseían los mismos productos (Plaza’s, Gama y el Central Madeirense).
+
+## Limitaciones Temporales {style="color: #F0DAA4"}
+
+-   Automatización de la descarga diaria de datos para la construcción de una base.
+
+-   Automatización del data frame `df_ipc` que alimenta al dashboard, para que vaya agregando por sí solo los datos nuevos, y dashboard se actualice diariamente.
+
+-   Dado a que hay múltiples productos sustitutos, no coincidentes en fabricantes, en las distintas tiendas que abarca dataprecios, posiblemente se puedan igualar `productIDs` de productos sustitutos de distinta marca, para que el análisis no sólo este en tres supermercados, sino que abarque un número mayor de estos.
+
+# Análisis Exploratorio de los Datos {style="color: #F0DAA4"}
+
+# Resúmenes Estadísticos {style="color: #F0DAA4"}
+
+## **Precios de DataPrecio:** {style="color: orchid"}
+
+|       |         |        |       |         |        |
+|-------|---------|--------|-------|---------|--------|
+| Min.  | 1st Qu. | Median | Mean  | 3rd Qu. | Max.   |
+| 0.390 | 1.730   | 2.900  | 4.929 | 5.750   | 61.270 |
+
+## Precios de los Supermercados: {style="color: lightblue"}
+
+|          |             |            |          |             |          |
+|----------|-------------|------------|----------|-------------|----------|
+| **Min.** | **1st Qu.** | **Median** | **Mean** | **3rd Qu.** | **Max.** |
+
+-   **Precios de Plazas:**
+
+|      |      |      |      |      |       |
+|------|------|------|------|------|-------|
+| 0.95 | 1.79 | 2.71 | 4.40 | 5.49 | 15.99 |
+
+-   **Precios del Central Madeirense:**
+
+|       |       |       |       |       |        |
+|-------|-------|-------|-------|-------|--------|
+| 0.960 | 1.680 | 2.700 | 4.157 | 5.010 | 16.300 |
+
+-   **Precios del Gama:**
+
+|       |       |       |       |       |        |
+|-------|-------|-------|-------|-------|--------|
+| 0.950 | 1.690 | 2.640 | 4.284 | 4.990 | 13.500 |
+
+## Precios de la Canasta Básica de los Tres Supermercados: {style="color: lightgreen"}
+
+|      |         |        |      |         |       |
+|------|---------|--------|------|---------|-------|
+| Min. | 1st Qu. | Median | Mean | 3rd Qu. | Max.  |
+| 0.95 | 1.69    | 2.70   | 4.28 | 5.39    | 16.30 |
+
+# Gráficos Exploratorios {style="color: #F0DAA4"}
+
+# Histogramas {style="color: #F0DAA4"}
+
+## Histograma de los precios en DataPrecios {style="color: orchid"}
+
+![](images/clipboard-15861576.png)
+
+## Histogramas de las Canastas Básicas por Supermercado {style="color: lightgreen"}
+
+-   Histograma de la Canasta Básica de Automercados Plaza
+
+![](images/clipboard-3646499738.png)
+
+## Histogramas de las Canastas Básicas por Supermercado {style="color: pink"}
+
+-   Histograma de la Canasta Básica de Central Madeirense
+
+![](images/clipboard-3936848625.png)
+
+## Histogramas de las Canastas Básicas por Supermercado {style="color: #FAEB92"}
+
+-   Histograma de la Canasta Básica de Gama Supermercados
+
+![](images/clipboard-1423526574.png)
+
+## Histogramas de las Canastas Básicas por Supermercado {style="color: lightblue"}
+
+|  |  |  |
+|----|----|----|
+| ![](images/clipboard-3646499738.png) | ![](images/clipboard-3936848625.png) | ![](images/clipboard-1423526574.png) |
+
+# Gráficos de Densidad {style="color: #F0DAA4"}
+
+## Densidad de los Precios en DataPrecios {style="color: orchid"}
+
+![](images/clipboard-1460571218.png)
+
+## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: lightgreen"}
+
+-   Densidad de los Precios en la Canasta Básica de Automercados Plaza
+
+![](images/clipboard-1928122122.png)
+
+## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: pink"}
+
+-   Densidad de los precios en la Canasta Básica de Central Madeirense
+
+![](images/clipboard-3502864055.png)
+
+## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: #FAEB92"}
+
+-   Densidad de los precios en la Canasta Básica de Gama Supermercados
+
+![](images/clipboard-2981633647.png)
+
+## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: lightblue"}
+
+![](images/clipboard-3157122061.png)
+
+# Cantidad de Productos por Categoría
+
+## Gráfico de barras de la Canasta Básica {style="color: pink"}
+
+![](images/clipboard-3851474166.png)
+
+::: {style="color: pink"}
+***Cabe destacar que esta fue la Canasta Básica inicialmente seleccionada, pero por la condición de filtrado mencionado en el apartado de "Obtención y Filtrado", esta fue posteriormente recortada a la canasta visualizada en el siguiente gráfico.***
+:::
+
+## Gráfico de barras de la Canasta Básica Filtrado {style="color: orchid"}
+
+![](images/clipboard-3156558686.png)
+
+## Comparación entre ambas {style="color: #F0DAA4"}
+
+|                                      |                                      |
+|--------------------------------------|--------------------------------------|
+| ![](images/clipboard-3851474166.png) | ![](images/clipboard-3156558686.png) |
+
+## Gráfico de barras de las categorías {style="color: lightblue"}
+
+![](images/clipboard-1464624892.png)
+
+# Análisis y Conclusiones {style="color: #F0DAA4"}
+
+## Análisis de la Evolución de los Precios y del Dashboard {style="color: #F0DAA4"}
+
+-   **Análisis del Gráfico**
+
+-   **Análisis de Data Table (Basic DataTable)**
+
+## Bibliografía Consultada {style="color: #F0DAA4"}
+
+-   [21 Iteration \| R for Data Science](https://r4ds.had.co.nz/iteration.html?q=loop#for-loops)
+
+-   [7.5 Loops \| An Introduction to R](https://intro2r.com/loops.html)
+
+-   [Basic DataTable - Shiny](https://shiny.posit.co/r/gallery/widgets/basic-datatable/)
+
+-   [Ciencia de Datos para Economistas](https://ucveconomia-r4ds-2025-1.netlify.app/clases/clase_13#/title-slide)
+
+-   [Clase 19: Selección, Agrupar y Crear Sumarios – UCV Economía R4DS](https://ucveconomia-r4ds-2025-1.netlify.app/clases/clase_19.html?#/title-slide)
+
+-   [Getting started with Shiny Dashboard - rstudio.github.io](https://rstudio.github.io/shinydashboard/get_started.html)
+
+-   [How to use DataTables in a Shiny App - Shiny](https://shiny.posit.co/r/articles/build/datatables/)
+
+-   [HTML Theming – Quarto](https://quarto-org.translate.goog/docs/output-formats/html-themes.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc)
+
+## Bibliografía Consultada {style="color: #F0DAA4"}
+
+-   [New Zealand Trade Intelligence Dashboard - Shiny](https://shiny.posit.co/r/gallery/government-public-sector/nz-trade-dash/)
+
+-   [Shiny Dashboard Structure - rstudio.github.io](https://rstudio.github.io/shinydashboard/structure.html#structure-overview)
+
+-   [UCV Economía R4DS – Clase 18: Selección, Agrupar y Crear Sumarios](https://ucveconomia-r4ds-2025-1.netlify.app/clases/clase_18.html?#/title-slide)
+
+-   [UCV Economía R4DS – Clase 23: Quarto Dashboards](https://ucveconomia-r4ds-2025-1.netlify.app/clases/clase_23#/quarto-dashboards)
