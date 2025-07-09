@@ -13,7 +13,7 @@ theme: black
 
 -   ¿Las instituciones de venta de alimentos formales, entendidos como supermercados, automercados o hipermercados, cuentan con precios accesibles y competitivos para que los hogares puedan adquirir los productos de la canasta básica?
 
-## Elección de los Datos y la Canasta Básica {style="color: #F0DAA4"}
+## Elección de los Datos y la canasta básica {style="color: #F0DAA4"}
 
 -   Selección de **DataPrecio**
 
@@ -23,7 +23,7 @@ theme: black
 
 -   ¿Cuál de los supermercados analizados ofrece la opción más ventajosa para la adquisición de la cesta básica representativa?
 
-# Obtención y Filtrado de los Datos {style="color: #F0DAA4"}
+# Obtención y Filtrado de los datos {style="color: #F0DAA4"}
 
 ## Obtención {style="color: #F0DAA4"}
 
@@ -147,7 +147,7 @@ El proceso de filtrado de los productos seleccionados en la canasta se realizó 
 
 ![](images/clipboard-3157122061.png)
 
-# Cantidad de productos por Categoría
+# Cantidad de productos por categoría
 
 ## Gráfico de barras de la canasta básica {style="color: pink"}
 
