@@ -1,0 +1,116 @@
+---
+title: "Análisis de la evolución de precios de la canasta básica: Un enfoque comparativo entre supermercados"
+format: dashboard
+lang: es
+embed-resources: true
+theme: litera
+---
+
+```{r}
+library(shinydashboard)
+library(shiny)
+library(plotly)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(DT)
+
+```
+
+```{r}
+load("~/Desktop/canasta_basica_data.rdata")
+```
+
+# Análisis de Precios: Canasta Básica
+
+## Row {height="25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Central Madeirense"
+
+
+list(value = paste0("$ ", ipc_madeirense),
+     color = "red"
+    )
+```
+
+```{r}
+#| content: valuebox
+#| title: "Automercados Plaza´s"
+list(value = paste0("$ ", ipc_plazas),
+      color = "green"
+    )
+```
+
+```{r}
+#| content: valuebox
+#| title:  "GAMA"
+list(value = paste0("$ ", ipc_gama),
+      color = "orange"
+    )
+```
+
+```{r}
+#| content: valuebox
+#| title: "Central Madeirense"
+list(value = paste0("Bs ", df_madeirense_bs),
+      color = "red"
+    )
+```
+
+```{r}
+#| content: valuebox
+#| title: "Automercados Plaza´s"
+list(value = paste0("Bs ", df_plazas_bs),
+      color = "green"
+    )
+```
+
+```{r}
+#| content: valuebox
+#| title: "GAMA"
+list(value = paste0("Bs ", df_gama_bs),
+      color = "orange"
+    )
+```
+
+## Row {height="40%"}
+
+```{r}
+#| title: "Evolución de la Canasta Básica por Supermercado en USD"
+
+library(plotly)
+library(ggplot2)
+
+ ipc_datapanel <-
+    df_ipc %>%
+      group_by(fecha, tienda) %>%
+      reframe(ipc_dia_tienda = sum(precio), .groups = "drop")
+
+grafico_1 <- ggplot(ipc_datapanel, aes(x = fecha, y = ipc_dia_tienda, color = tienda)) +
+      geom_line(linewidth = 1) +
+      labs(
+        x = "Fecha",
+        y = "Precio de Canasta Básica",
+        color = "Supermercado"
+      )+
+      theme_minimal()
+
+ggplotly(grafico_1)
+```
+
+
+
+# Tabla de Productos
+
+```{r}
+#| title: "Tabla de productos "
+
+library(tidyverse)
+library(DT)
+datatable(df_producto)
+
+```
+
+\`
