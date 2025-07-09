@@ -45,7 +45,7 @@ El proceso de filtrado de los productos seleccionados en la canasta se realizó 
 
 -   Dado a que hay múltiples productos sustitutos, no coincidentes en fabricantes, en las distintas tiendas que abarca dataprecios, posiblemente se puedan igualar `productIDs` de productos sustitutos de distinta marca, para que el análisis no sólo este en tres supermercados, sino que abarque un número mayor de estos.
 
-# Análisis Exploratorio de los Datos {style="color: #F0DAA4"}
+# Análisis exploratorio de los datos {style="color: #F0DAA4"}
 
 # Resúmenes Estadísticos {style="color: #F0DAA4"}
 
@@ -56,7 +56,7 @@ El proceso de filtrado de los productos seleccionados en la canasta se realizó 
 | Min.  | 1st Qu. | Median | Mean  | 3rd Qu. | Max.   |
 | 0.390 | 1.730   | 2.900  | 4.929 | 5.750   | 61.270 |
 
-## Precios de los Supermercados: {style="color: lightblue"}
+## Precios de los supermercados: {style="color: lightblue"}
 
 |          |             |            |          |             |          |
 |----------|-------------|------------|----------|-------------|----------|
@@ -95,91 +95,91 @@ El proceso de filtrado de los productos seleccionados en la canasta se realizó 
 
 ![](images/clipboard-15861576.png)
 
-## Histogramas de las Canastas Básicas por Supermercado {style="color: lightgreen"}
+## Histogramas de las canastas básicas por supermercado {style="color: lightgreen"}
 
--   Histograma de la Canasta Básica de Automercados Plaza
+-   Histograma de la canasta básica de Automercados Plaza
 
 ![](images/clipboard-3646499738.png)
 
-## Histogramas de las Canastas Básicas por Supermercado {style="color: pink"}
+## Histogramas de las canastas básicas por supermercado {style="color: pink"}
 
--   Histograma de la Canasta Básica de Central Madeirense
+-   Histograma de la canasta básica de Central Madeirense
 
 ![](images/clipboard-3936848625.png)
 
-## Histogramas de las Canastas Básicas por Supermercado {style="color: #FAEB92"}
+## Histogramas de las canastas básicas por supermercado {style="color: #FAEB92"}
 
--   Histograma de la Canasta Básica de Gama Supermercados
+-   Histograma de la canasta básica de Gama Supermercados
 
 ![](images/clipboard-1423526574.png)
 
-## Histogramas de las Canastas Básicas por Supermercado {style="color: lightblue"}
+## Histogramas de las canastas básicas por supermercado {style="color: lightblue"}
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | ![](images/clipboard-3646499738.png) | ![](images/clipboard-3936848625.png) | ![](images/clipboard-1423526574.png) |
 
 # Gráficos de Densidad {style="color: #F0DAA4"}
 
-## Densidad de los Precios en DataPrecios {style="color: orchid"}
+## Densidad de los precios en DataPrecios {style="color: orchid"}
 
 ![](images/clipboard-1460571218.png)
 
-## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: lightgreen"}
+## Densidad de los precios en la canasta básica de los tres supermercados {style="color: lightgreen"}
 
--   Densidad de los Precios en la Canasta Básica de Automercados Plaza
+-   Densidad de los precios en la canasta básica de Automercados Plaza
 
 ![](images/clipboard-1928122122.png)
 
-## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: pink"}
+## Densidad de los precios en la canasta básica de los tres supermercados {style="color: pink"}
 
--   Densidad de los precios en la Canasta Básica de Central Madeirense
+-   Densidad de los precios en la canasta básica de Central Madeirense
 
 ![](images/clipboard-3502864055.png)
 
-## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: #FAEB92"}
+## Densidad de los precios en la canasta básica de los tres supermercados {style="color: #FAEB92"}
 
--   Densidad de los precios en la Canasta Básica de Gama Supermercados
+-   Densidad de los precios en la canasta básica de Gama Supermercados
 
 ![](images/clipboard-2981633647.png)
 
-## Densidad de los Precios en la Canasta Básica de los Tres Supermercados {style="color: lightblue"}
+## Densidad de los precios en la canasta básica de los tres supermercados {style="color: lightblue"}
 
 ![](images/clipboard-3157122061.png)
 
-# Cantidad de Productos por Categoría
+# Cantidad de productos por Categoría
 
-## Gráfico de barras de la Canasta Básica {style="color: pink"}
+## Gráfico de barras de la canasta básica {style="color: pink"}
 
 ![](images/clipboard-3851474166.png)
 
 ::: {style="color: pink"}
-***Cabe destacar que esta fue la Canasta Básica inicialmente seleccionada, pero por la condición de filtrado mencionado en el apartado de "Obtención y Filtrado", esta fue posteriormente recortada a la canasta visualizada en el siguiente gráfico.***
+***Cabe destacar que esta fue la canasta básica inicialmente seleccionada, pero por la condición de filtrado mencionado en el apartado de "Obtención y Filtrado", esta fue posteriormente recortada a la canasta visualizada en el siguiente gráfico.***
 :::
 
-## Gráfico de barras de la Canasta Básica Filtrado {style="color: orchid"}
+## Gráfico de barras de la canasta básica filtrado {style="color: orchid"}
 
 ![](images/clipboard-3156558686.png)
 
 ## Comparación entre ambas {style="color: #F0DAA4"}
 
 |                                      |                                      |
-|--------------------------------------|--------------------------------------|
+|------------------------------------|------------------------------------|
 | ![](images/clipboard-3851474166.png) | ![](images/clipboard-3156558686.png) |
 
 ## Gráfico de barras de las categorías {style="color: lightblue"}
 
 ![](images/clipboard-1464624892.png)
 
-# Análisis y Conclusiones {style="color: #F0DAA4"}
+# Análisis y conclusiones {style="color: #F0DAA4"}
 
-## Análisis de la Evolución de los Precios y del Dashboard {style="color: #F0DAA4"}
+## Análisis de la evolución de los precios y del dashboard {style="color: #F0DAA4"}
 
 -   **Análisis del Gráfico**
 
 -   **Análisis de Data Table (Basic DataTable)**
 
-## Bibliografía Consultada {style="color: #F0DAA4"}
+## Bibliografía consultada {style="color: #F0DAA4"}
 
 -   [21 Iteration \| R for Data Science](https://r4ds.had.co.nz/iteration.html?q=loop#for-loops)
 
@@ -197,7 +197,7 @@ El proceso de filtrado de los productos seleccionados en la canasta se realizó 
 
 -   [HTML Theming – Quarto](https://quarto-org.translate.goog/docs/output-formats/html-themes.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc)
 
-## Bibliografía Consultada {style="color: #F0DAA4"}
+## Bibliografía consultada {style="color: #F0DAA4"}
 
 -   [New Zealand Trade Intelligence Dashboard - Shiny](https://shiny.posit.co/r/gallery/government-public-sector/nz-trade-dash/)
 
